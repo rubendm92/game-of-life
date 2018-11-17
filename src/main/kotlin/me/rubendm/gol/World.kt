@@ -16,15 +16,13 @@ data class Grid(private val cells: Map<Position, Cell>) {
 
 data class World(private val grid: Grid) {
 
+    private val neighborhoods = mapOf(2 to Average, 3 to Prolific).withDefault { Deadly }
+
     fun evolve(): World = World(grid.map { position, cell ->
         cell.tick(neighborhood(grid.neighborsOf(position)))
     })
 
     private fun neighborhood(neighbors: List<Cell>): Neighborhood {
-        return when (neighbors.count { it == AliveCell}) {
-            2 -> Average
-            3 -> Prolific
-            else -> Deadly
-        }
+        return neighborhoods.getValue(neighbors.count { it == AliveCell })
     }
 }

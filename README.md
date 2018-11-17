@@ -19,6 +19,8 @@ Well, polymorphism to the rescue. In the code you will find two types of cells: 
 
 In the `World` class you'll find a `when` statement from Kotlin that in fact is a type of conditional, like a switch. I used this for the sake of clarity, but I hope you agree that this can be easily replace with a Map of two entries and a `getOrDefault` (I'm not writing the conditional in that case :))
 
+_Edit: I have trolls as friends and they are incapable of imagining a Map instead of when, so I'll replace it 🤷‍♂️_
+
 ## Disclaimer
 
 I didn't intend the solution to be perfect. There are some names that are not quite expressive maybe, and for making the test easier I used some `data classes` to have implemented the `equals` method.
